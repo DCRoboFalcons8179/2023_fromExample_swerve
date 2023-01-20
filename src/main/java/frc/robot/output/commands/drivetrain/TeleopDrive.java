@@ -36,5 +36,7 @@ public class TeleopDrive extends CommandBase {
 
 		swerve.drive(Robot.driver.getLeftX(), Robot.driver.getLeftY(),
 					 Robot.driver.getRightX(), swerve.gyroAngle());
+
+		System.out.println(swerve.gyroAngle());
 	}
 }

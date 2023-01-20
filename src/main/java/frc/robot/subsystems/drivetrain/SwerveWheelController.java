@@ -36,8 +36,16 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
         backLeft = new SwerveWheel(backLeftDriveID, backLeftTurnTalonID, backLeftEncoderID, backLeftEncoderOffset, "Back Left");
 
         try {
+            System.out.println("--------------");
             gyro = new AHRS(SPI.Port.kMXP); 
+            System.out.println(gyro.isConnected());
+            System.out.println(gyro.getAltitude());
+
             gyroEnabled = true;
+            System.out.println("NavX plugged in");
+            System.out.println("--------------");
+
+
         } catch (RuntimeException ex ) {
             System.out.println("--------------");
             System.out.println("NavX not plugged in");
