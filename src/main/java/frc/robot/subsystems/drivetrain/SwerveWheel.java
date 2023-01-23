@@ -46,7 +46,7 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 		// and set it to continuous
 		getController().enableContinuousInput(-180, 180);
 
-		// Sets name for viewing in SmartDashboard
+		// Sets name for viewing in SmartDashboard 
 		this.setName(name);
 	}
 
