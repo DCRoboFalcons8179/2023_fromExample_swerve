@@ -27,8 +27,14 @@ public class SwerveWheelController extends SubsystemBase implements SwerveConsta
 
     private boolean isFieldCentric = true;
     private boolean gyroEnabled = false;
+
+
+    @Override
+    public void initDefaultCommand(){
+        setDefaultCommand(new TeleopDrive());
+    }
     
-    private SwerveWheelController(){
+    public SwerveWheelController(){
 
 
         frontRight = new SwerveWheel(frontRightDriveID, frontRightTurnTalonID, frontRightEncoderOffset, "Front Right");
@@ -59,6 +65,12 @@ public class SwerveWheelController extends SubsystemBase implements SwerveConsta
         // backRight.enable();
         // backLeft.enable();
     }
+
+
+
+
+
+
 
     // x1 = strafe, y1 = speed, x2 = rotation 
     // Holonomic drive
@@ -157,16 +169,5 @@ public class SwerveWheelController extends SubsystemBase implements SwerveConsta
         return isFieldCentric;
     }
 
-    /**
-     * @return the instance
-     */
-    public static SwerveWheelController getInstance() {
-        if (instance == null) {
-            instance = new SwerveWheelController();
-            instance.setDefaultCommand(new TeleopDrive());
-        }
-
-        return instance;
-    }
 }
 

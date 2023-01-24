@@ -6,14 +6,15 @@ import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
 public class TeleopDrive extends CommandBase {
 
-	private SwerveWheelController swerve = null;
+	private final SwerveWheelController swerve;
+
 
 	private boolean currentFOD = false;
 
 	public TeleopDrive() {
-		swerve = SwerveWheelController.getInstance();
 
-		addRequirements(swerve);
+		addRequirements(Robot.swerve);
+		
 	}
 
 	@Override
