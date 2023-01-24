@@ -53,10 +53,10 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
             gyroEnabled = false;
         }
 
-        frontRight.enable();
-        frontLeft.enable();
-        backRight.enable();
-        backLeft.enable();
+        // frontRight.enable();
+        // frontLeft.enable();
+        // backRight.enable();
+        // backLeft.enable();
     }
 
     // x1 = strafe, y1 = speed, x2 = rotation 

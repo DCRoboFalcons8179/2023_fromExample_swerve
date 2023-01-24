@@ -9,7 +9,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 
-public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstants {
+public class SwerveWheel implements SwerveDrivetrainConstants {
 
 	public String name;
 
@@ -21,7 +21,6 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 
 	public SwerveWheel(int m_drive, int m_steer, int analogEnc, int zeroOffset,
 					   String name) {
-		super(new PIDController(kP, kI, kD));
 
 		this.name = name;
 
@@ -44,10 +43,32 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 
 		// Set the input range of the PIDF so that it will only accept angles between -180 to 180
 		// and set it to continuous
-		getController().enableContinuousInput(-180, 180);
+		// getController().enableContinuousInput(-180, 180);
 
 		// Sets name for viewing in SmartDashboard 
-		this.setName(name);
+		// this.setName(name);
+
+
+		// STEER MOTOR ADD PID and MOTION PROFILE
+
+		steerMotor.configMotionAcceleration(kSteerAccel);
+		steerMotor.configMotionCruiseVelocity(kSteerCruiseVel);
+
+		steerMotor.config_kP(STR_POS_SLOT, kP_STEER);
+		steerMotor.config_kI(STR_POS_SLOT, kI_STEER);
+		steerMotor.config_kD(STR_POS_SLOT, kD_STEER);
+		steerMotor.config_kF(STR_POS_SLOT, kF_STEER);
+
+
+		// Drive Motor Velocity Loop
+		drive.config_kP(DRV_POS_SLOT, kP_DRIVE);
+		drive.config_kI(DRV_POS_SLOT, kI_DRIVE);
+		drive.config_kD(DRV_POS_SLOT, kD_DRIVE);
+		drive.config_kF(DRV_POS_SLOT, kF_DRIVE);
+
+
+
+
 	}
 
 	// Get the current angle of the analog encoder
@@ -62,6 +83,10 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 
 	public void setSpeed(double speed) {
 		drive.set(ControlMode.Velocity, speed);
+	}
+
+	public void setSetpoint(double set) {
+		steerMotor.set(ControlMode.MotionMagic, set);
 	}
 
 	// Convert ticks to angle bound from -180 to 180
@@ -79,11 +104,13 @@ public class SwerveWheel extends PIDSubsystem implements SwerveDrivetrainConstan
 
 	@Override
 	protected double getMeasurement() {
-		return ticksToAngle(getTicks());
+
+		return ticksToAngle((int)(steerMotor.getSelectedSensorPosition()));
+
 	}
 
-	@Override
-	protected void useOutput(double output, double setpoint) {
-		steerMotor.set(ControlMode.PercentOutput, output);
-	}
+	// @Override
+	// protected void useOutput(double output, double setpoint) {
+	// 	steerMotor.set(ControlMode.PercentOutput, output);
+	// }
 }

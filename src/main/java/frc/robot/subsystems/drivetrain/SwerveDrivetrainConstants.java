@@ -6,11 +6,27 @@ public interface SwerveDrivetrainConstants {
 	public final double L = 25;
 	public final double W = 23;
 
-	// PIDF Variables
-	public final double kP = 0.02;
-	public final double kI = 0.0;
-	public final double kD = 0.0;
-	public final double kF = 0.0;
+	// STEER PID & MOTION PROFILE
+
+	public final double kSteerAccel = 9000;
+	public final double kSteerCruiseVel = 5000;
+
+	public final int STR_POS_SLOT = 0;
+	public final double kP_STEER = 0;
+	public final double kI_STEER = 0;
+	public final double kD_STEER = 0;
+	public final double kF_STEER = 0;
+
+
+	// DRIVE PID 
+
+	public final int DRV_POS_SLOT = 0;
+	public final double kP_DRIVE = 0;
+	public final double kI_DRIVE = 0;
+	public final double kD_DRIVE = 0;
+	public final double kF_DRIVE = 0;
+
+
 	
 	// Quadrature Encoder Ticks per Rotation
 	public final int QUAD_COUNTS_PER_ROT = 1658;
