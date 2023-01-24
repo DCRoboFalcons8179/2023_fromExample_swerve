@@ -6,7 +6,7 @@ import frc.robot.subsystems.drivetrain.SwerveWheelController;
 
 public class TeleopDrive extends CommandBase {
 
-	private final SwerveWheelController swerve;
+	private SwerveWheelController swerve;
 
 
 	private boolean currentFOD = false;
@@ -39,5 +39,10 @@ public class TeleopDrive extends CommandBase {
 					 Robot.driver.getRightX(), swerve.gyroAngle());
 
 		System.out.println(swerve.gyroAngle());
+
+
+
 	}
+
+
 }

@@ -23,7 +23,7 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final int m_driverControllerID_0 = k.Controls.kDriverControllerPort;
 
-
+  SwerveWheelController swerve = Robot.swerve;
 
 
 
@@ -32,6 +32,10 @@ public class RobotContainer {
     // Configure the trigger bindings
     
     configureBindings();
+
+
+    
+    
 
 
   
@@ -54,6 +58,8 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // new Trigger(m_exampleSubsystem::exampleCondition)
     //     .onTrue(new ExampleCommand(m_exampleSubsystem));
+
+
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
