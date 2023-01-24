@@ -4,6 +4,15 @@ package frc.robot;
 
 public interface k {
 
+
+    public static interface Controls {
+
+        int kDriverControllerPort = 0;
+
+    }
+
+
+
     public static interface SwerveConstants {
         
 
@@ -78,6 +87,7 @@ public interface k {
 
 
     }
+
 
 
     
