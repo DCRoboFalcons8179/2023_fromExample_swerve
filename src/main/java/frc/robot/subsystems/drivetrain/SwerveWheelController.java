@@ -65,6 +65,8 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
 
         y1 *= -1;
 
+        // Any input scalling goes here
+
         // Calculate magnitude of joystick
         double magnitude = Math.sqrt((Math.pow(x1, 2)) + (Math.pow(y1,2)));
 
