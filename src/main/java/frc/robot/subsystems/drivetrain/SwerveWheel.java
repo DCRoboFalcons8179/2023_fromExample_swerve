@@ -102,8 +102,7 @@ public class SwerveWheel implements SwerveDrivetrainConstants {
 		return result;
 	}
 
-	@Override
-	protected double getMeasurement() {
+	public double getMeasurement() {
 
 		return ticksToAngle((int)(steerMotor.getSelectedSensorPosition()));
 
