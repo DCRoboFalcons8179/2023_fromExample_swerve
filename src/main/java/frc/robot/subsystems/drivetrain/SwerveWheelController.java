@@ -1,6 +1,7 @@
 package frc.robot.subsystems.drivetrain;
 
-import frc.robot.output.commands.drivetrain.TeleopDrive;
+import frc.robot.commands.TeleopDrive;
+import frc.robot.k.SwerveConstants;
 import frc.robot.subsystems.drivetrain.SwerveWheel;
 
 import edu.wpi.first.wpilibj.SPI;
@@ -9,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.kauailabs.navx.frc.AHRS;
 
-public class SwerveWheelController extends SubsystemBase implements SwerveDrivetrainConstants {
+public class SwerveWheelController extends SubsystemBase implements SwerveConstants {
 
     private static SwerveWheelController instance = null;
     

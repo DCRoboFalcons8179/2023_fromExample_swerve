@@ -2,14 +2,12 @@ package frc.robot.subsystems.drivetrain;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj2.command.PIDSubsystem;
+import frc.robot.k;
 
-public class SwerveWheel implements SwerveDrivetrainConstants {
+public class SwerveWheel implements k.SwerveConstants {
 
 	public String name;
 
@@ -61,10 +59,22 @@ public class SwerveWheel implements SwerveDrivetrainConstants {
 
 
 		// Drive Motor Velocity Loop
-		drive.config_kP(DRV_POS_SLOT, kP_DRIVE);
-		drive.config_kI(DRV_POS_SLOT, kI_DRIVE);
-		drive.config_kD(DRV_POS_SLOT, kD_DRIVE);
-		drive.config_kF(DRV_POS_SLOT, kF_DRIVE);
+		drive.config_kP(DRV_VEL_SLOT, kP_DRIVE_VEL);
+		drive.config_kI(DRV_VEL_SLOT, kI_DRIVE_VEL);
+		drive.config_kD(DRV_VEL_SLOT, kD_DRIVE_VEL);
+		drive.config_kF(DRV_VEL_SLOT, kF_DRIVE_VEL);
+
+
+		// Drive motor Position Loop
+
+		drive.configMotionAcceleration(kDriveAccel);
+		drive.configMotionCruiseVelocity(kDriveCruiseVel);
+
+		drive.config_kP(DRV_POS_SLOT, kP_DRIVE_POS);
+		drive.config_kI(DRV_POS_SLOT, kI_DRIVE_POS);
+		drive.config_kD(DRV_POS_SLOT, kD_DRIVE_POS);
+		drive.config_kF(DRV_POS_SLOT, kF_DRIVE_POS);
+
 
 
 
