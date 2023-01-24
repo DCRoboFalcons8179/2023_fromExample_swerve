@@ -19,7 +19,7 @@ public class SwerveWheel implements SwerveDrivetrainConstants {
 
 	private int countsWhenFrwd;
 
-	public SwerveWheel(int m_drive, int m_steer, int analogEnc, int zeroOffset,
+	public SwerveWheel(int m_drive, int m_steer, int zeroOffset,
 					   String name) {
 
 		this.name = name;
@@ -29,7 +29,7 @@ public class SwerveWheel implements SwerveDrivetrainConstants {
 
 		countsWhenFrwd = zeroOffset;
 
-		absEnc = new AnalogInput(analogEnc);
+		// absEnc = new AnalogInput(analogEnc);
 
 		// Reset all of the settings on startup
 		steerMotor.configFactoryDefault();

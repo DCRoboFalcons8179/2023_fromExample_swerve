@@ -30,10 +30,10 @@ public class SwerveWheelController extends SubsystemBase implements SwerveDrivet
     private SwerveWheelController(){
 
 
-        frontRight = new SwerveWheel(frontRightDriveID, frontRightTurnTalonID, frontRightEncoderID, frontRightEncoderOffset, "Front Right");
-        frontLeft = new SwerveWheel(frontLeftDriveID, frontLeftTurnTalonID, frontLeftEncoderID, frontLeftEncoderOffset, "Front Left");
-        backRight = new SwerveWheel(backRightDriveID, backRightTurnTalonID, backRightEncoderID, backRightEncoderOffset, "Back Right");
-        backLeft = new SwerveWheel(backLeftDriveID, backLeftTurnTalonID, backLeftEncoderID, backLeftEncoderOffset, "Back Left");
+        frontRight = new SwerveWheel(frontRightDriveID, frontRightTurnTalonID, frontRightEncoderOffset, "Front Right");
+        frontLeft = new SwerveWheel(frontLeftDriveID, frontLeftTurnTalonID, frontLeftEncoderOffset, "Front Left");
+        backRight = new SwerveWheel(backRightDriveID, backRightTurnTalonID, backRightEncoderOffset, "Back Right");
+        backLeft = new SwerveWheel(backLeftDriveID, backLeftTurnTalonID, backLeftEncoderOffset, "Back Left");
 
         try {
             System.out.println("--------------");
